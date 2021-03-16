@@ -4,9 +4,41 @@
 	Description: A Child theme of Rehub theme
 	Author: Md. Mostak Shahid
 	Author URI: http://mdmostakshahid.com/
-	Version: 1.0.0
+	Version: 1.0.2
 	Template: rehub-theme
 */
 
 /* =Theme customization starts here
 -------------------------------------------------------------- */
+body .alignfull .wp-block-group__inner-container, .width-1200 {
+	width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.font-weight-900 {
+	font-weight: 900;
+}
+.line-height-1-2em {
+	line-height: 1.2em
+}
+.p-10{
+	padding: 10px!important;
+}
+.w-500{
+	width: 100%;
+	max-width: 500px;
+}
+.w-300{
+	width: 100%;
+	max-width: 300px;
+}
+.mx-auto {
+	margin-left: auto!important;
+	margin-right: auto!important;
+}
+.ml-auto {
+	margin-left: auto!important;
+}
+.mr-auto {
+	margin-right: auto!important;
+}
