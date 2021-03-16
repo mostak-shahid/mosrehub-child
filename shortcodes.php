@@ -139,7 +139,6 @@ function porduct_carousel_func( $atts = array(), $content = '' ) {
 	$html = '';
     ob_start();
 	$atts = shortcode_atts( array(
-        'title'             => '',
 		'limit'				=> '-1',
 		'offset'			=> 0,
 		'category'			=> '',
@@ -192,13 +191,6 @@ function porduct_carousel_func( $atts = array(), $content = '' ) {
 	$query = new WP_Query( $args );
 	if ( $query->have_posts() ) :
         ?>
-        <div class="paginator-center">
-            <h2 class="product-carousel-title"><?php echo $atts['title'] ?></h2>
-            <ul>
-                <li class="prev"><i class="fa fa-angle-left"></i></li>
-                <li class="next"><i class="fa fa-angle-right"></i></li>
-            </ul>
-        </div>
 		<div id="product-carousel-<?php echo $rand?>" class="product-carousel-container <?php echo $atts['container_class'] ?>"  data-slick='{"slidesToShow": <?php echo $atts['show'] ?>}'>
 		<?php while ( $query->have_posts() ) : $query->the_post(); 
             $product = wc_get_product( get_the_ID() );
@@ -276,8 +268,6 @@ function porduct_carousel_func( $atts = array(), $content = '' ) {
             infinite: true,
             slidesToShow: 4,
             slidesToScroll: 1,
-//            prevArrow: $('#product-carousel-<?php echo $rand?>').siblings().find('.prev'),
-//            nextArrow: $('#product-carousel-<?php echo $rand?>').siblings().find('.next'),
             autoplay: true,
             autoplaySpeed: 2000,
             responsive: [
