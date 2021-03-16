@@ -224,6 +224,7 @@ function porduct_carousel_func( $atts = array(), $content = '' ) {
                         <div class="gridcountdown"></div>
                     </figure>
                     <div class="cat_for_grid lineheight15">
+                        <?php var_dump(get_the_terms( get_the_ID(), 'product_cat' )) ?>
                         <a href="https://wahimall.com/product-category/vitamins-supplements/" class="woocat">Vitamins &amp; Supplements</a>
                     </div>
 
