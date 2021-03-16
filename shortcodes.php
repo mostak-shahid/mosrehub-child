@@ -256,7 +256,7 @@ function porduct_carousel_func( $atts = array(), $content = '' ) {
                         
                         */
                         foreach($categories as $category) {
-                            if (!$n) echo ', ';
+                            if ($n) echo ', ';
                             echo '<a href="'.get_term_link($category->term_id).'" class="woocat">'.$category->name.'</a>';
                             $n++;
                         }
