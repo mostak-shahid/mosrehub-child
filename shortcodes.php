@@ -225,44 +225,11 @@ function porduct_carousel_func( $atts = array(), $content = '' ) {
                     </figure>
                     <div class="cat_for_grid lineheight15">
                         <?php 
-                        $n = 0;
                         $categories = get_the_terms( get_the_ID(), 'product_cat' );
-                        /*
-                        array(1) {
-  [0]=&gt;
-  object(WP_Term)#10423 (10) {
-    ["term_id"]=&gt;
-    int(217)
-    ["name"]=&gt;
-    string(26) "Vitamins &amp; Supplements"
-    ["slug"]=&gt;
-    string(20) "vitamins-supplements"
-    ["term_group"]=&gt;
-    int(0)
-    ["term_taxonomy_id"]=&gt;
-    int(217)
-    ["taxonomy"]=&gt;
-    string(11) "product_cat"
-    ["description"]=&gt;
-    string(0) ""
-    ["parent"]=&gt;
-    int(0)
-    ["count"]=&gt;
-    int(12)
-    ["filter"]=&gt;
-    string(3) "raw"
-  }
-}
-                        
-                        */
                         foreach($categories as $category) {
-                            if ($n) echo ', ';
-                            echo '<a href="'.get_term_link($category->term_id).'" class="woocat">'.$category->name.'</a>';
-                            $n++;
+                            echo '<a href="'.get_term_link($category->term_id).'" class="woocat">'.$category->name.'</a> ';
                         }
-                        ?>
-                        
-                        
+                        ?>                    
                     </div>
 
                     <h3 class=" text-clamp text-clamp-2">
@@ -309,8 +276,8 @@ function porduct_carousel_func( $atts = array(), $content = '' ) {
             infinite: true,
             slidesToShow: 4,
             slidesToScroll: 1,
-            prevArrow: $('#product-carousel-<?php echo $rand?>').siblings().find('.prev'),
-            nextArrow: $('#product-carousel-<?php echo $rand?>').siblings().find('.next'),
+//            prevArrow: $('#product-carousel-<?php echo $rand?>').siblings().find('.prev'),
+//            nextArrow: $('#product-carousel-<?php echo $rand?>').siblings().find('.next'),
             autoplay: true,
             autoplaySpeed: 2000,
             responsive: [
