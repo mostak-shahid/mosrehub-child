@@ -196,7 +196,7 @@ function porduct_carousel_func( $atts = array(), $content = '' ) {
             $product = wc_get_product( get_the_ID() );
             ?>
 		    <div <?php post_class( $classes ); ?>>
-                <div class="product col_item woo_grid_compact two_column_mobile type-product ">
+                <div class="col_item woo_grid_compact two_column_mobile type-product ">
                     <div class="button_action rh-shadow-sceu pt5 pb5">
                         <div>
                             <div class="heart_thumb_wrap text-center"><span class="flowhidden cell_wishlist"><span class="heartplus" data-post_id="<?php echo get_the_ID() ?>" data-informer="0"><span class="ml5 rtlmr5 wishaddedwrap" id="wishadded<?php echo get_the_ID() ?>">Added to wishlist</span><span class="ml5 rtlmr5 wishremovedwrap" id="wishremoved<?php echo get_the_ID() ?>">Removed from wishlist</span> </span></span><span id="wishcount<?php echo get_the_ID() ?>" class="thumbscount">0</span> </div>
