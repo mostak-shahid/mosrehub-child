@@ -260,34 +260,6 @@ function porduct_carousel_func( $atts = array(), $content = '' ) {
                     </div>
 
                 </div>
-                
-		        <div class="wpisset-woo-loop-thumbnail-wrapper">
-                        <a href="http://skyla.lpdthemesdemo.com/product/argan-baby-lotion/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
-                        <?php if ($product->is_on_sale()) : ?>
-		                    <span class="onsale"><i class="icon-star"></i></span>
-		                <?php endif?>
-		                <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'medium') ?>" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" loading="lazy">
-		                </a>
-
-		            <div class="button-rating-wrapper">
-                        <?php if($product->get_average_rating()) : ?>
-		                <div class="star-rating-wrapper">
-		                    <div class="star-rating" role="img" aria-label="Rated <?php echo $product->get_average_rating(); ?> out of 5"><span style="width:80%">Rated <strong class="rating"><?php echo $product->get_average_rating(); ?></strong> out of 5</span></div>
-		                </div>
-		                <?php endif?>
-		                <?php if($product->get_type() == 'variable') : ?>
-		                <a href="<?php echo get_the_permalink() ?>" class="button">Select Item</a>
-		                <?php else : ?>
-		                <a href="?add-to-cart=<?php echo get_the_ID() ?>" data-quantity="1" class="button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="<?php echo get_the_ID() ?>" data-product_sku="123456789-17" aria-label="Add “<?php echo get_the_title() ?>” to your cart" rel="nofollow">Add to cart</a>
-		                <?php endif;?>
-		            </div>
-		        </div>
-		        <div class="wpisset-woo-loop-content-wrapper">
-		            <div class="wpisset-woo-loop-content">
-		                <h4 class="woocommerce-loop-product__title"><?php echo get_the_title() ?></h4>
-		                <?php echo $product->get_price_html(); ?>
-		            </div>
-		        </div>
 		    </div>
         <?php endwhile; ?>
 		</div><!--/.product-carousel-container-->
