@@ -219,7 +219,7 @@ function porduct_carousel_func( $atts = array(), $content = '' ) {
 
                     <figure class="mb15 mt25 position-relative">
                         <a class="img-centered-flex rh-flex-justify-center rh-flex-center-align" href="<?php echo get_the_permalink() ?>">
-                            <img src="https://wahimall.b-cdn.net/wp-content/uploads/2021/01/solgar-vitamin-c-1000mg-90-tablets-280x280.webp" data-spai="1" data-src="https://wahimall.b-cdn.net/wp-content/uploads/2021/01/solgar-vitamin-c-1000mg-90-tablets-280x280.webp" alt="<?php echo get_the_title() ?>" class=" ls-is-cached lazyloaded" width="280" height="280">
+                            <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'medium') ?>" data-spai="1" data-src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'medium') ?>" alt="<?php echo get_the_title() ?>" class=" ls-is-cached lazyloaded" width="280" height="280">
 
                         </a>
 
