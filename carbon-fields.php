@@ -20,7 +20,7 @@ function crb_attach_theme_options() {
     /*Container::make( 'theme_options', __( 'Theme Options', 'crb' ) )
         ->add_fields( array(
             Field::make( 'text', 'crb_text', 'Text Field' ),
-        ));
+        ));*/
     Container::make( 'post_meta', 'Custom Data' )
         ->where( 'post_type', '=', 'page' )
         ->add_fields( array(
@@ -28,7 +28,7 @@ function crb_attach_theme_options() {
                 ->set_position( 37.423156, -122.084917, 14 ),
             Field::make( 'sidebar', 'crb_custom_sidebar' ),
             Field::make( 'image', 'crb_photo' ),
-        ));*/
+        ));
     Block::make( __( 'Mos Deal of the Day' ) )
     ->add_fields( array(
         Field::make( 'text', 'mos-dtd-heading', __( 'Heading' ) ),
@@ -39,7 +39,7 @@ function crb_attach_theme_options() {
     ->set_icon( 'cart' )
     ->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
         ?>
-        <div class="mos-image-dtd-wrapper <?php echo $attributes['className'] ?>">
+        <div class="mos-dtd-wrapper <?php echo $attributes['className'] ?>">
             <div class="mos-dtd-block">
                 <?php echo esc_html( $fields['mos-dtd-heading'] ); ?>
             </div>
