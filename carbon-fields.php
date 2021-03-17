@@ -41,7 +41,10 @@ function crb_attach_theme_options() {
         ?>
         <div class="mos-dtd-wrapper <?php echo $attributes['className'] ?>">
             <div class="mos-dtd-block">
-                <?php echo esc_html( $fields['mos-dtd-heading'] ); ?>
+                <?php if ($fields['mos-dtd-heading']) : ?>
+                <div class="title"><?php echo esc_html( $fields['mos-dtd-heading'] ); ?></div>
+                <hr>
+                <?php endif?>
             </div>
         </div>
         <?php
