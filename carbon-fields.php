@@ -34,7 +34,9 @@ function crb_attach_theme_options() {
         Field::make( 'text', 'mos-dtd-heading', __( 'Heading' ) ),
         Field::make( 'date_time', 'mos-dtd-ete', __( 'Estimated time of ending' ) ),
         Field::make( 'select', 'mos-dtd-product', __( 'Select a product' ) )
-            ->set_options( $products )
+            ->set_options( $products ),
+        Field::make( 'text', 'mos-dtd-sold', __( 'Already Sold:' ) ),
+        Field::make( 'text', 'mos-dtd-available', __( 'Available:' ) ),
     ))
     ->set_icon( 'cart' )
     ->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
