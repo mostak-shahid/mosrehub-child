@@ -40,18 +40,8 @@ function crb_attach_theme_options() {
     ->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
         ?>
         <div class="mos-image-dtd-wrapper <?php echo $attributes['className'] ?>">
-            <div class="mos-image-block">
-                <div class="img-part"><?php echo wp_get_attachment_image( $fields['mos-image-media'], 'full' ); ?></div>
-                <div class="text-part">
-                    <h4><?php echo esc_html( $fields['mos-image-heading'] ); ?></h4>
-<!--                    <hr style="background-color: <?php echo esc_html( $fields['mos-image-hr'] ) ?>;">-->
-                <?php if ($fields['mos-image-content']) :?>
-                    <div class="desc"><?php echo apply_filters( 'the_content', $fields['mos-image-content'] ); ?></div> 
-                <?php endif?>                 
-                <?php if ($fields['mos-image-btn-title'] && $fields['mos-image-btn-url']) :?>   
-                    <div class="wp-block-buttons"><div class="wp-block-button"><a href="<?php echo esc_url( $fields['mos-image-btn-url'] ); ?>" title="" class="wp-block-button__link"><?php echo esc_html( $fields['mos-image-btn-title'] ); ?></a></div></div>  
-                <?php endif?>                 
-                </div>
+            <div class="mos-dtd-block">
+                <?php echo esc_html( $fields['mos-dtd-heading'] ); ?>
             </div>
         </div>
         <?php
