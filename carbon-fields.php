@@ -41,22 +41,30 @@ function crb_attach_theme_options() {
     ->set_icon( 'cart' )
     ->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
         ?>
-        <div class="mos-dtd-wrapper <?php echo $attributes['className'] ?>">
-            <div class="mos-dtd-block">
-                <?php if ($fields['mos-dtd-heading']) : ?>
-                <div class="title"><?php echo esc_html( $fields['mos-dtd-heading'] ); ?></div>
-                <hr>
-                <?php endif?>
-                <?php if ($fields['mos-dtd-ete']) : ?>
-                <div class="ete"><?php echo esc_html( $fields['mos-dtd-ete'] ); ?></div>
-                <hr>
-                <?php endif?>
-                <?php if ($fields['mos-dtd-product']) : ?>
-                <div class="product"><?php echo esc_html( $fields['mos-dtd-product'] ); ?></div>
-                <hr>
-                <?php endif?>
+        <?php if ($fields['mos-dtd-product']) : ?>
+            <div class="mos-dtd-wrapper <?php echo $attributes['className'] ?>">
+                <div class="mos-dtd-block">
+                    <div class="img-part">
+                        <?php if (has_post_thumbnail($fields['mos-dtd-product'])) :?>
+                            <a class="img-centered-flex rh-flex-center-align rh-flex-justify-center" href="<?php echo get_the_permalink($fields['mos-dtd-product']) ?>">
+                                <img loading="lazy" src="<?php echo get_the_post_thumbnail_url($fields['mos-dtd-product'], 'full')?>" data-src="" alt="<?php echo get_the_title($fields['mos-dtd-product']) ?>" class="lazyloaded" width="600" height="450">                            </a>
+                        <?php endif;?>
+                    </div>
+                    <?php if ($fields['mos-dtd-heading']) : ?>
+                    <div class="title"><?php echo esc_html( $fields['mos-dtd-heading'] ); ?></div>
+                    <hr>
+                    <?php endif?>
+                    <?php if ($fields['mos-dtd-ete']) : ?>
+                    <div class="ete"><?php echo esc_html( $fields['mos-dtd-ete'] ); ?></div>
+                    <hr>
+                    <?php endif?>
+                    <?php if ($fields['mos-dtd-product']) : ?>
+                    <div class="product"><?php echo esc_html( $fields['mos-dtd-product'] ); ?></div>
+                    <hr>
+                    <?php endif?>
+                </div>
             </div>
-        </div>
+        <?php endif?>
         <?php
     });
     
