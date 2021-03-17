@@ -5,7 +5,7 @@ use Carbon_Fields\Field;
 
 add_action( 'carbon_fields_register_fields', 'crb_attach_theme_options' );
 function crb_attach_theme_options() {
-    $products = [];
+    /*$products = [];
     $args = array( 
 		'post_type' 		=> 'product',
 		'posts_per_page' => -1,
@@ -16,7 +16,7 @@ function crb_attach_theme_options() {
             $products[get_the_id()] = get_the_title();
         endwhile;
         wp_reset_postdata();
-    endif;
+    endif;*/
     /*Container::make( 'theme_options', __( 'Theme Options', 'crb' ) )
         ->add_fields( array(
             Field::make( 'text', 'crb_text', 'Text Field' ),
@@ -33,8 +33,8 @@ function crb_attach_theme_options() {
     ->add_fields( array(
         Field::make( 'text', 'mos-dtd-heading', __( 'Heading' ) ),
         Field::make( 'date_time', 'mos-dtd-heading', __( 'Estimated time of ending' ) ),
-        Field::make( 'select', 'mos-dtd-product', __( 'Select a product' ) )
-            ->set_options( $products )
+        /*Field::make( 'select', 'mos-dtd-product', __( 'Select a product' ) )
+            ->set_options( $products )*/
     ))
     ->set_icon( 'cart' )
     ->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
