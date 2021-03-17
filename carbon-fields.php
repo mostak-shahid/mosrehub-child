@@ -45,6 +45,14 @@ function crb_attach_theme_options() {
                 <div class="title"><?php echo esc_html( $fields['mos-dtd-heading'] ); ?></div>
                 <hr>
                 <?php endif?>
+                <?php if ($fields['mos-dtd-ete']) : ?>
+                <div class="ete"><?php echo esc_html( $fields['mos-dtd-ete'] ); ?></div>
+                <hr>
+                <?php endif?>
+                <?php if ($fields['mos-dtd-product']) : ?>
+                <div class="product"><?php echo esc_html( $fields['mos-dtd-product'] ); ?></div>
+                <hr>
+                <?php endif?>
             </div>
         </div>
         <?php
