@@ -31,10 +31,10 @@ function crb_attach_theme_options() {
         ));
     Block::make( __( 'Mos Deal of the Day' ) )
     ->add_fields( array(        
-        Field::make( 'image', 'mos-dtd-photo' ),
+        //Field::make( 'image', 'mos-dtd-photo' ),
         Field::make( 'text', 'mos-dtd-heading', __( 'Heading' ) ),
-        /*Field::make( 'date_time', 'mos-dtd-heading', __( 'Estimated time of ending' ) ),
-        Field::make( 'select', 'mos-dtd-product', __( 'Select a product' ) )
+        Field::make( 'date_time', 'mos-dtd-ete', __( 'Estimated time of ending' ) ),
+        /*Field::make( 'select', 'mos-dtd-product', __( 'Select a product' ) )
             ->set_options( $products )*/
     ))
     ->set_icon( 'cart' )
