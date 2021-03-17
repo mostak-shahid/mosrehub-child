@@ -42,7 +42,7 @@ body .alignfull .wp-block-group__inner-container, .width-1200 {
 .mr-auto {
 	margin-right: auto!important;
 }
-.woocommerce div.product .slick-slide {
+.woocommerce div.product.slick-slide {
     padding: 12px 12px 80px 12px;
     border: 1px solid #e2e2e2;
     background-color: #fff;
