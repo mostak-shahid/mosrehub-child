@@ -119,6 +119,17 @@ z-index: 2;
 .justify-content-center{
 	justify-content: center;
 }
+.mos-dtd-wrapper{
+    border: 3px solid #aa4ece;
+    padding: 20px;
+    background: #fff;
+}
+.mos-dtd-wrapper .title{
+    color: #aa4ece;
+}
+.mos-dtd-wrapper .price{
+    color: #489c08;
+}
 @media only screen and (min-width: 767px) {
     .w-sm-50p{
         width: 50%;
