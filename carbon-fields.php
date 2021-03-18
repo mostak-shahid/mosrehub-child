@@ -100,7 +100,6 @@ function crb_attach_theme_options() {
                                     </div>
                                     <!-- Countdown dashboard end -->
                                     <div class="clearfix"></div>
-
                                 </div>  
                             <?php endif?>                             
                             <div class="mt20 mb15">
@@ -108,19 +107,6 @@ function crb_attach_theme_options() {
                             </div>
                         </div>                        
                     </div>
-                    <?php if ($fields['mos-dtd-ete']) : 
-                    $raw = new DateTime($fields['mos-dtd-ete']);
-                    endif?>
-                    <?php if ($fields['mos-dtd-product']) : ?>
-                    <div class="product"><?php echo esc_html( $fields['mos-dtd-product'] ); ?></div>
-                    <hr>
-                    <?php 
-                    $origin = new DateTime($fields['mos-dtd-ete']);
-                    $target = new DateTime(date(''));
-                    $interval = $origin->diff($target);
-                    echo (($interval->format('%d')*24) + $interval->format('%h'))*60; //1440 (difference in minutes)
-                    ?>
-                    <?php endif?>
                 </div>
             </div>
         <?php endif?>
