@@ -172,23 +172,36 @@ function crb_attach_theme_options() {
                         <h3><?php echo esc_html( $fields['mos-product-list-heading'] ); ?></h3>
                     </div>
                 <?php endif?>
-                <div class="wpsm_recent_posts_list mb0">
-                   <?php var_dump($fields['mos-product-list-products'])?>
-                    <div class="col_item item-small-news flowhidden item-small-news-image border-lightgrey pl10 pr10 mb20 pt10 pb10">
-                        <figure class="img-centered-flex rh-flex-eq-height rh-flex-justify-center floatleft width-80 height-80 img-width-auto position-relative"><a href="https://wahimall.com/product/bose-quietcomfort-20-acoustic-noise-cancelling-headphones-android-black/">
-                                <img loading="lazy" src="https://wahimall.com/wp-content/uploads/2021/03/Bose-QuietComfort-20-Acoustic-Noise-Cancelling-Headphones-Android-Black-100x85.jpg" data-src="https://wahimall.com/wp-content/uploads/2021/03/Bose-QuietComfort-20-Acoustic-Noise-Cancelling-Headphones-Android-Black-100x85.jpg" alt="Bose QuietComfort 20 Acoustic Noise Cancelling Headphones, Android – Black" class=" lazyloaded" width="100" height="85"> </a>
-                        </figure>
-                        <div class="item-small-news-details position-relative floatright width-80-calc pl15 rtlpr15">
-                            <div class="post-meta mb10 upper-text-trans changeonhover">
-                                <a href="https://wahimall.com/product-category/electronics/" class="woocat greycolor">Electronics</a>
+                    <?php var_dump($fields['mos-product-list-products'])?>
+                <?php if (sizeof($fields['mos-product-list-products'])) : ?>
+                    <div class="wpsm_recent_posts_list mb0">
+                        <?php foreach($fields['mos-product-list-products'] as $post_id): ?>
+                            <?php $product = wc_get_product($post_id); ?>
+                            <div class="col_item item-small-news flowhidden item-small-news-image border-lightgrey pl10 pr10 mb20 pt10 pb10">
+                                <?php if (has_post_thumbnail()) : ?>
+                                <figure class="img-centered-flex rh-flex-eq-height rh-flex-justify-center floatleft width-80 height-80 img-width-auto position-relative"><a href="<?php echo get_the_permalink($post_id)?>">
+                                        <img loading="lazy" src="<?php echo aq_resize(get_the_post_thumbnail_url($post_id,'full'), 100,85, true) ?>" data-src="<?php echo aq_resize(get_the_post_thumbnail_url($post_id,'full'), 100,85, true) ?>" alt="<?php echo get_the_title($post_id) ?>" class=" lazyloaded" width="100" height="85"> </a>
+                                </figure>
+                                <?php endif;?>
+                                <div class="item-small-news-details position-relative floatright width-80-calc pl15 rtlpr15">
+                                    <div class="post-meta mb10 upper-text-trans changeonhover">
+                                        <?php 
+                                        $categories = get_the_terms( get_the_ID(), 'product_cat' );
+                                        foreach($categories as $category) {
+                                            echo '<a href="'.get_term_link($category->term_id).'" class="woocat greycolor">'.$category->name.'</a> ';
+                                        }
+                                        ?>
+<!--                                        <a href="https://wahimall.com/product-category/electronics/" class="woocat greycolor">Electronics</a>-->
+                                    </div>
+                                    <h3 class="mb5 mt0"><a href="<?php echo get_the_permalink($post_id)?>" class="mr10"><?php echo get_the_title($post_id)?></a>
+                                    </h3>
+                                    <span class="simple_price_count greencolor fontnormal"><?php echo $product->get_price_html(); ?></span>
+                                </div>
+                                <div class="clearfix"></div>
                             </div>
-                            <h3 class="mb5 mt0"><a href="https://wahimall.com/product/bose-quietcomfort-20-acoustic-noise-cancelling-headphones-android-black/" class="mr10">Bose QuietComfort 20 Acoustic Noise Cancelling Headphones, Android – Black</a>
-                            </h3>
-                            <span class="simple_price_count greencolor fontnormal"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>249.00</bdi></span></span>
-                        </div>
-                        <div class="clearfix"></div>
+                        <?php endforeach;?>
                     </div>
-                </div>
+                <?php endif;?>
             </div>
         </div>
         <?php
