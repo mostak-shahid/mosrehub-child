@@ -231,7 +231,7 @@ function porduct_carousel_func( $atts = array(), $content = '' ) {
                     </h3>
 
 
-                    <small class="wcvendors_sold_by_in_loop"><span>Sold by</span> <a href="https://wahimall.com/store/sano/">Sano Health Food Center</a></small><br>
+                    <small class="wcvendors_sold_by_in_loop"><span>Sold by</span> <a href="https://wahimall.com/store/sano/">Sano Health Food Center <?php echo get_post_meta(get_the_ID(),'dokan_product_author_override',true) ?></a></small><br>
 
 
 
