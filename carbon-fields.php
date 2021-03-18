@@ -76,39 +76,41 @@ function crb_attach_theme_options() {
                                 </div>
                             </div>
                             <div class="marketing-text mt15 mb15">Hurry Up! Offer ends soon.</div>
-                            <div class="woo_spec_timer">
+                            <?php if ($fields['mos-dtd-ete']) :  ?>
+                                <?php $raw = new DateTime($fields['mos-dtd-ete']); ?>
+                                <div class="woo_spec_timer">
+                                    <!--2021-03-18 17:00:00-->
+                                    <div id="countdown_dashboard7" class="countdown_dashboard" data-day="<?php echo $raw->format('d'); ?>" data-month="<?php echo $raw->format('m'); ?>" data-year="<?php echo $raw->format('Y'); ?>" data-hour="<?php echo $raw->format('H'); ?>" data-min="<?php echo $raw->format('i'); ?>">
+                                        <div class="dash days_dash"> <span class="dash_title">days</span>
+                                            <div class="digit">0</div>
+                                            <div class="digit">0</div>
+                                        </div>
+                                        <div class="dash hours_dash"> <span class="dash_title">hours</span>
+                                            <div class="digit">0</div>
+                                            <div class="digit">0</div>
+                                        </div>
+                                        <div class="dash minutes_dash"> <span class="dash_title">minutes</span>
+                                            <div class="digit">0</div>
+                                            <div class="digit">0</div>
+                                        </div>
+                                        <div class="dash seconds_dash"> <span class="dash_title">seconds</span>
+                                            <div class="digit">0</div>
+                                            <div class="digit">0</div>
+                                        </div>
+                                    </div>
+                                    <!-- Countdown dashboard end -->
+                                    <div class="clearfix"></div>
 
-                                <div id="countdown_dashboard7" class="countdown_dashboard" data-day="19" data-month="03" data-year="2021" data-hour="23" data-min="59">
-                                    <div class="dash days_dash"> <span class="dash_title">days</span>
-                                        <div class="digit">0</div>
-                                        <div class="digit">0</div>
-                                    </div>
-                                    <div class="dash hours_dash"> <span class="dash_title">hours</span>
-                                        <div class="digit">0</div>
-                                        <div class="digit">0</div>
-                                    </div>
-                                    <div class="dash minutes_dash"> <span class="dash_title">minutes</span>
-                                        <div class="digit">0</div>
-                                        <div class="digit">0</div>
-                                    </div>
-                                    <div class="dash seconds_dash"> <span class="dash_title">seconds</span>
-                                        <div class="digit">0</div>
-                                        <div class="digit">0</div>
-                                    </div>
-                                </div>
-                                <!-- Countdown dashboard end -->
-                                <div class="clearfix"></div>
-
-                            </div>                                
+                                </div>  
+                            <?php endif?>                             
                             <div class="mt20 mb15">
                             <a href="?add-to-cart=<?php echo get_the_ID() ?>" data-product_id="<?php echo get_the_ID() ?>" data-product_sku="testmultivendor" class="re_track_btn rehub_main_btn rehub-main-smooth wpsm-button ajax_add_to_cart product_type_simple" >Add to cart</a>
                             </div>
                         </div>                        
                     </div>
-                    <?php if ($fields['mos-dtd-ete']) : ?>
-                    <div class="ete"><?php echo esc_html( $fields['mos-dtd-ete'] ); ?></div>
-                    <hr>
-                    <?php endif?>
+                    <?php if ($fields['mos-dtd-ete']) : 
+                    $raw = new DateTime($fields['mos-dtd-ete']);
+                    endif?>
                     <?php if ($fields['mos-dtd-product']) : ?>
                     <div class="product"><?php echo esc_html( $fields['mos-dtd-product'] ); ?></div>
                     <hr>
