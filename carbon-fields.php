@@ -58,11 +58,19 @@ function crb_attach_theme_options() {
                         </div>
                         <div class="text-part">
                             <h3><a class="" href="<?php echo get_the_permalink($fields['mos-dtd-product']) ?>"><?php echo get_the_title($fields['mos-dtd-product']) ?></a></h3>
-                            
-                            <div class="wpsm-bar wpsm-clearfix" data-percent="75%">
-                                <div class="wpsm-bar-bar" style="background: #6adcfa;"></div>
-                                <div class="wpsm-bar-percent">75 %</div>
-                            </div>
+                            <div class="woo_spec_bar mt30 mb20">
+                                <div class="deal-stock mb10">
+                                    <span class="stock-sold floatleft">
+                                        Already Sold: <strong>12</strong>
+                                    </span>
+                                    <span class="stock-available floatright">
+                                        Available: <strong>16</strong>
+                                    </span>
+                                </div>
+                                <div class="wpsm-bar wpsm-clearfix" data-percent="75%">
+                                    <div class="wpsm-bar-bar" style="background: rgb(106, 220, 250); width: 75%;"></div>
+                                    <div class="wpsm-bar-percent">75 %</div>
+                                </div>
                             </div>
                             <div class="marketing-text mt15 mb15">Hurry Up! Offer ends soon.</div>
                             <div class="woo_spec_timer">
