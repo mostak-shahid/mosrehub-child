@@ -67,6 +67,12 @@ function crb_attach_theme_options() {
                     <?php if ($fields['mos-dtd-product']) : ?>
                     <div class="product"><?php echo esc_html( $fields['mos-dtd-product'] ); ?></div>
                     <hr>
+                    <?php 
+                    $origin = new DateTime('2021-02-10 09:46:32');
+                    $target = new DateTime('2021-02-11 09:46:32');
+                    $interval = $origin->diff($target);
+                    echo (($interval->format('%d')*24) + $interval->format('%h'))*60; //1440 (difference in minutes)
+                    ?>
                     <?php endif?>
                 </div>
             </div>
