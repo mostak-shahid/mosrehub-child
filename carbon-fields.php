@@ -44,16 +44,21 @@ function crb_attach_theme_options() {
         <?php if ($fields['mos-dtd-product']) : ?>
             <div class="mos-dtd-wrapper <?php echo $attributes['className'] ?>">
                 <div class="mos-dtd-block">
-                    <div class="img-part">
-                        <?php if (has_post_thumbnail($fields['mos-dtd-product'])) :?>
-                            <a class="img-centered-flex rh-flex-center-align rh-flex-justify-center" href="<?php echo get_the_permalink($fields['mos-dtd-product']) ?>">
-                                <img loading="lazy" src="<?php echo aq_resize(get_the_post_thumbnail_url($fields['mos-dtd-product'], 'full'),600,450,true)?>" data-src="<?php echo get_the_post_thumbnail_url($fields['mos-dtd-product'], 'full')?>" alt="<?php echo get_the_title($fields['mos-dtd-product']) ?>" class="lazyloaded" width="600" height="450">                            </a>
-                        <?php endif;?>
-                    </div>
                     <?php if ($fields['mos-dtd-heading']) : ?>
                     <div class="title"><?php echo esc_html( $fields['mos-dtd-heading'] ); ?></div>
                     <hr>
                     <?php endif?>
+                    <div class="wrapper">
+                        <div class="img-part">
+                            <?php if (has_post_thumbnail($fields['mos-dtd-product'])) :?>
+                                <a class="img-centered-flex rh-flex-center-align rh-flex-justify-center" href="<?php echo get_the_permalink($fields['mos-dtd-product']) ?>">
+                                    <img loading="lazy" src="<?php echo aq_resize(get_the_post_thumbnail_url($fields['mos-dtd-product'], 'full'),600,450,true)?>" data-src="<?php echo get_the_post_thumbnail_url($fields['mos-dtd-product'], 'full')?>" alt="<?php echo get_the_title($fields['mos-dtd-product']) ?>" class="lazyloaded" width="600" height="450">                            </a>
+                            <?php endif;?>
+                        </div>
+                        <div class="text-part">
+                            <h3><a class="" href="<?php echo get_the_permalink($fields['mos-dtd-product']) ?>"><?php echo get_the_title($fields['mos-dtd-product']) ?></a></h3>                                                                                            
+                        </div>                        
+                    </div>
                     <?php if ($fields['mos-dtd-ete']) : ?>
                     <div class="ete"><?php echo esc_html( $fields['mos-dtd-ete'] ); ?></div>
                     <hr>
