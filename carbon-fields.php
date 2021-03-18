@@ -172,7 +172,7 @@ function crb_attach_theme_options() {
                         <h3><?php echo esc_html( $fields['mos-product-list-heading'] ); ?></h3>
                     </div>
                 <?php endif?>
-                    <?php var_dump($fields['mos-product-list-products'])?>
+                    <?php //var_dump($fields['mos-product-list-products'])?>
                 <?php if (sizeof($fields['mos-product-list-products'])) : ?>
                     <div class="wpsm_recent_posts_list mb0">
                         <?php foreach($fields['mos-product-list-products'] as $post_id): ?>
