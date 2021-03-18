@@ -20,3 +20,4 @@ function enqueue_parent_theme_style() {
 }
 require_once 'carbon-fields.php';
 require_once 'shortcodes.php';
+require_once 'aq_resizer.php';
