@@ -59,7 +59,7 @@ function crb_attach_theme_options() {
                         <div class="text-part">
                             <h3><a class="" href="<?php echo get_the_permalink($fields['mos-dtd-product']) ?>"><?php echo get_the_title($fields['mos-dtd-product']) ?></a></h3>
                             <div class="woo_spec_price">
-                                <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>249.99</bdi></span></span>
+                                <?php echo $product->get_price_html(); ?>
                             </div>
                             <div class="woo_spec_bar mt30 mb20">
                                 <div class="deal-stock mb10">
