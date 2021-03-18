@@ -42,6 +42,7 @@ function crb_attach_theme_options() {
     ->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
         ?>
         <?php if ($fields['mos-dtd-product']) : ?>
+            <?php $product = wc_get_product(get_the_ID());?>
             <div class="mos-dtd-wrapper <?php echo $attributes['className'] ?>">
                 <div class="mos-dtd-block">
                     <?php if ($fields['mos-dtd-heading']) : ?>
@@ -60,12 +61,21 @@ function crb_attach_theme_options() {
                         </div>                        
                     </div>
                     <?php if ($fields['mos-dtd-ete']) : ?>
-                    <div class="ete"><?php echo esc_html( $fields['mos-dtd-ete'] ); ?></div>
+                    <div 
+                    class="ete"><?php echo esc_html( $fields['mos-dtd-ete'] ); ?></div>
+                    <?php 
+                    $origin = new DateTime('2021-02-10 09:46:32');
+                    $target = new DateTime('2021-02-11 09:46:32');
+                    $interval = $origin->diff($target);
+                    echo (($interval->format('%d')*24) + $interval->format('%h'))*60; //1440 (difference in minutes)
+                    ?>
+                    
                     <hr>
                     <?php endif?>
                     <?php if ($fields['mos-dtd-product']) : ?>
                     <div class="product"><?php echo esc_html( $fields['mos-dtd-product'] ); ?></div>
                     <hr>
+                    <?php echo $product->get_price_html(); ?>
                     <?php endif?>
                 </div>
             </div>
