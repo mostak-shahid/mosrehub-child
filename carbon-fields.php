@@ -47,6 +47,43 @@ function crb_attach_theme_options() {
             $sold = ($fields['mos-dtd-sold'])?$fields['mos-dtd-sold']:0;
             $available = ($fields['mos-dtd-available'])?$fields['mos-dtd-available']:0;
             $percent = number_format(($sold * 100 / $available), 2);
+            if( class_exists( 'WeDevs_Dokan' ) ) {
+                $vendor_id = get_the_author_meta( 'ID' );
+                $store_info = dokan_get_store_info( $vendor_id );
+                $store_url = dokan_get_store_url( $vendor_id );
+                $sold_by_label = apply_filters( 'dokan_sold_by_label', esc_html__( 'Sold by', 'rehub-theme' ) );
+                $is_vendor = dokan_is_user_seller( $vendor_id );
+                $store_name = esc_html( $store_info['store_name'] );
+                $featured_vendor = get_user_meta( $vendor_id, 'dokan_feature_seller', true );
+            }elseif (class_exists('WCMp')){
+                $vendor_id = get_the_author_meta( 'ID' );
+                $is_vendor = is_user_wcmp_vendor( $vendor_id );
+                if($is_vendor){
+                    $vendorobj = get_wcmp_vendor($vendor_id);
+                    $store_url = $vendorobj->permalink;
+                    $store_name = $vendorobj->page_title;	
+                    $verified_vendor = get_user_meta($vendor_id, 'wcmp_vendor_is_verified', true);			
+                }
+                $wcmp_option = get_option("wcmp_frontend_settings_name");
+                $sold_by_label = (!empty($wcmp_option['sold_by_text'])) ? $wcmp_option['sold_by_text'] : esc_html__( 'Sold by', 'rehub-theme' );
+            }
+            elseif (defined( 'wcv_plugin_dir' )) {
+                $vendor_id = get_the_author_meta( 'ID' );
+                $store_url = WCV_Vendors::get_vendor_shop_page( $vendor_id );
+                $sold_by_label = get_option( 'wcvendors_label_sold_by' );
+                $is_vendor = WCV_Vendors::is_vendor( $vendor_id );
+                $store_name = WCV_Vendors::get_vendor_sold_by( $vendor_id );
+
+                if ( class_exists( 'WCVendors_Pro' ) ) {
+                    $vendor_meta = array_map( function( $a ){ return $a[0]; }, get_user_meta($vendor_id ) );
+                    $verified_vendor = ( array_key_exists( '_wcv_verified_vendor', $vendor_meta ) ) ? $vendor_meta[ '_wcv_verified_vendor' ] : false;
+                    $vacation_mode = get_user_meta( $vendor_id , '_wcv_vacation_mode', true ); 
+                    $vacation_msg = ( $vacation_mode ) ? get_user_meta( $vendor_id , '_wcv_vacation_mode_msg', true ) : '';		
+                }		
+            }
+            else{
+                return false;
+            }                    
             ?>
             <div class="mos-dtd-wrapper <?php echo $attributes['className'] ?>">
                 <div class="mos-dtd-block">
@@ -57,12 +94,14 @@ function crb_attach_theme_options() {
                     <div class="wrapper d-flex">
                         <div class="img-part w-sm-50p">
                             <?php if (has_post_thumbnail($fields['mos-dtd-product'])) :?>
-                                <a class="img-centered-flex rh-flex-center-align rh-flex-justify-center" href="<?php echo get_the_permalink($fields['mos-dtd-product']) ?>">
-                                    <img loading="lazy" src="<?php echo aq_resize(get_the_post_thumbnail_url($fields['mos-dtd-product'], 'full'),600,450,true)?>" data-src="<?php echo get_the_post_thumbnail_url($fields['mos-dtd-product'], 'full')?>" alt="<?php echo get_the_title($fields['mos-dtd-product']) ?>" class="lazyloaded" width="600" height="450">                            </a>
+                                <a class="img-centered-flex rh-flex-center-align rh-flex-justify-center" href="<?php echo get_the_permalink($fields['mos-dtd-product']) ?>"><img loading="lazy" src="<?php echo aq_resize(get_the_post_thumbnail_url($fields['mos-dtd-product'], 'full'),600,450,true)?>" data-src="<?php echo get_the_post_thumbnail_url($fields['mos-dtd-product'], 'full')?>" alt="<?php echo get_the_title($fields['mos-dtd-product']) ?>" class="lazyloaded" width="600" height="450"></a>
                             <?php endif;?>
                         </div>
                         <div class="text-part w-sm-50p">
                             <h3><a class="" href="<?php echo get_the_permalink($fields['mos-dtd-product']) ?>"><?php echo get_the_title($fields['mos-dtd-product']) ?></a></h3>
+                            <div class="soldby">
+                                <small class="wcvendors_sold_by_in_loop"><span><?php echo $sold_by_label; ?></span> <a href="<?php echo $store_url ?>"><?php echo $store_name ?></a></small>
+                            </div>
                             <div class="woo_spec_price">
                                 <?php echo $product->get_price_html(); ?>
                             </div>
