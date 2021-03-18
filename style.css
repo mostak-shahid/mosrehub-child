@@ -21,6 +21,9 @@ body .alignfull .wp-block-group__inner-container, .width-1200 {
 .line-height-1-2em {
 	line-height: 1.2em
 }
+.hr-3{
+    height: 3px;
+}
 .p-10{
 	padding: 10px!important;
 }
