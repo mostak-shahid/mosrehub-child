@@ -4,7 +4,7 @@
 	Description: A Child theme of Rehub theme
 	Author: Md. Mostak Shahid
 	Author URI: http://mdmostakshahid.com/
-	Version: 1.0.4
+	Version: 1.0.5
 	Template: rehub-theme
 */
 
@@ -46,4 +46,65 @@ body .alignfull .wp-block-group__inner-container, .width-1200 {
     padding: 12px 12px 80px 12px;
     border: 1px solid #e2e2e2;
     background-color: #fff;
+}
+.bg-blue-light{
+	background-color: #00bdff;
+}
+.ml-0{
+	margin-left:0!important;
+}
+.mb-0{
+	margin-bottom: 0!important;
+}
+.py-60 {
+	padding-top: 60px;
+	padding-bottom: 60px;
+}
+.woocommerce div.product.slick-slide .col_item {
+    padding: 12px 12px 80px 12px;
+    border: 1px solid #e2e2e2;
+    background-color: #fff;
+	  margin-left: 10px;
+	  margin-right: 10px;
+	  height: 100%;
+}
+.woocommerce div.product.slick-slide .button_action {
+z-index: 2;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: auto;
+    background: rgba(255, 255, 255, 0.78);
+    border-radius: 100px;
+    padding: 0 5px;
+}
+.slick-prev, .slick-next{
+	width: 50px;
+	background-color: rgba(0,0,0,.5);
+	height: unset;
+	z-index: 1;
+}
+.slick-prev:before, .slick-next:before {
+	line-height: 50px;
+}
+.slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus{
+	background-color: rgba(0,0,0,.8);
+	color: #ffffff;
+}
+.slick-track
+{
+    display: flex !important;
+}
+
+.slick-slide
+{
+    height: inherit !important;
+}
+.img-centered{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.justify-content-center{
+	justify-content: center;
 }
