@@ -57,7 +57,44 @@ function crb_attach_theme_options() {
                             <?php endif;?>
                         </div>
                         <div class="text-part">
-                            <h3><a class="" href="<?php echo get_the_permalink($fields['mos-dtd-product']) ?>"><?php echo get_the_title($fields['mos-dtd-product']) ?></a></h3>                                                                                            
+                            <h3><a class="" href="<?php echo get_the_permalink($fields['mos-dtd-product']) ?>"><?php echo get_the_title($fields['mos-dtd-product']) ?></a></h3>
+                            
+                            <div class="wpsm-bar wpsm-clearfix" data-percent="75%">
+                                <div class="wpsm-bar-bar" style="background: #6adcfa;"></div>
+                                <div class="wpsm-bar-percent">75 %</div>
+                            </div>
+                            </div>
+                            <div class="marketing-text mt15 mb15">Hurry Up! Offer ends soon.</div>
+                            <div class="woo_spec_timer">
+
+                                <div id="countdown_dashboard7" class="countdown_dashboard" data-day="19" data-month="03" data-year="2021" data-hour="23" data-min="59">
+                                    <div class="dash days_dash"> <span class="dash_title">days</span>
+                                        <div class="digit">0</div>
+                                        <div class="digit">0</div>
+                                    </div>
+                                    <div class="dash hours_dash"> <span class="dash_title">hours</span>
+                                        <div class="digit">0</div>
+                                        <div class="digit">0</div>
+                                    </div>
+                                    <div class="dash minutes_dash"> <span class="dash_title">minutes</span>
+                                        <div class="digit">0</div>
+                                        <div class="digit">0</div>
+                                    </div>
+                                    <div class="dash seconds_dash"> <span class="dash_title">seconds</span>
+                                        <div class="digit">0</div>
+                                        <div class="digit">0</div>
+                                    </div>
+                                </div>
+                                <!-- Countdown dashboard end -->
+                                <div class="clearfix"></div>
+
+                            </div>
+                                
+                            <div class="mt20 mb15">
+                            <a href="?add-to-cart=<?php echo get_the_ID() ?>" data-product_id="<?php echo get_the_ID() ?>" data-product_sku="testmultivendor" class="re_track_btn rehub_main_btn rehub-main-smooth wpsm-button ajax_add_to_cart product_type_simple" >Add to cart</a>
+                            </div>
+                        </div>
+                                                                                          
                         </div>                        
                     </div>
                     <?php if ($fields['mos-dtd-ete']) : ?>
@@ -68,8 +105,8 @@ function crb_attach_theme_options() {
                     <div class="product"><?php echo esc_html( $fields['mos-dtd-product'] ); ?></div>
                     <hr>
                     <?php 
-                    $origin = new DateTime('2021-02-10 09:46:32');
-                    $target = new DateTime('2021-02-11 09:46:32');
+                    $origin = new DateTime($fields['mos-dtd-ete']);
+                    $target = new DateTime(date(''));
                     $interval = $origin->diff($target);
                     echo (($interval->format('%d')*24) + $interval->format('%h'))*60; //1440 (difference in minutes)
                     ?>
