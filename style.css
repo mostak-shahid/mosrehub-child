@@ -39,6 +39,9 @@ body .alignfull .wp-block-group__inner-container, .width-1200 {
     display: -o-flex;
     display: flex;
 }
+.flex-grow-1{
+    flex-grow: 1;
+}
 .mx-auto {
 	margin-left: auto!important;
 	margin-right: auto!important;
