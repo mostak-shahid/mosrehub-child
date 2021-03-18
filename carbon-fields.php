@@ -178,7 +178,7 @@ function crb_attach_theme_options() {
                         <?php foreach($fields['mos-product-list-products'] as $post_id): ?>
                             <?php $product = wc_get_product($post_id); ?>
                             <div class="col_item item-small-news flowhidden item-small-news-image border-lightgrey pl10 pr10 mb20 pt10 pb10">
-                                <?php if (has_post_thumbnail()) : ?>
+                                <?php if (has_post_thumbnail($post_id)) : ?>
                                 <figure class="img-centered-flex rh-flex-eq-height rh-flex-justify-center floatleft width-80 height-80 img-width-auto position-relative"><a href="<?php echo get_the_permalink($post_id)?>">
                                         <img loading="lazy" src="<?php echo aq_resize(get_the_post_thumbnail_url($post_id,'full'), 100,85, true) ?>" data-src="<?php echo aq_resize(get_the_post_thumbnail_url($post_id,'full'), 100,85, true) ?>" alt="<?php echo get_the_title($post_id) ?>" class=" lazyloaded" width="100" height="85"> </a>
                                 </figure>
