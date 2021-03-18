@@ -210,7 +210,7 @@ function porduct_carousel_func( $atts = array(), $content = '' ) {
                     <figure class="mb15 mt25 position-relative">
                         <a class="img-centered-flex rh-flex-justify-center rh-flex-center-align" href="<?php echo get_the_permalink() ?>">
                             <?php if (has_post_thumbnail()) : ?>
-                            <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'medium') ?>" data-spai="1" data-src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'medium') ?>" alt="<?php echo get_the_title() ?>" class="ls-is-cached lazyloaded" width="280" height="280">
+                            <img src="<?php echo aq_resize(get_the_post_thumbnail_url(get_the_ID(),'full'), 280,280, true) ?>" data-spai="1" data-src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'medium') ?>" alt="<?php echo get_the_title() ?>" class="ls-is-cached lazyloaded" width="280" height="280">
                             <?php endif;?>
 
                         </a>
@@ -238,7 +238,8 @@ function porduct_carousel_func( $atts = array(), $content = '' ) {
                     <div class="border-top pt10 pr10 pl10 pb10 rh-flex-center-align abposbot">
                         <div class="price_for_grid redbrightcolor floatleft rehub-btn-font mr10">
 
-                            <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>13.49</bdi></span></span>
+                            <!--<span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>13.49</bdi></span></span>-->
+                            <?php echo $product->get_price_html(); ?>
                         </div>
                         <div class="rh-flex-right-align btn_for_grid floatright">
 
