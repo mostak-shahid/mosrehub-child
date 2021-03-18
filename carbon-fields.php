@@ -43,6 +43,11 @@ function crb_attach_theme_options() {
         ?>
         <?php if ($fields['mos-dtd-product']) : ?>
             <?php $product = wc_get_product($fields['mos-dtd-product']); ?>
+            <?php
+            $sold = ($fields['mos-dtd-sold'])?$fields['mos-dtd-sold']:0;
+            $available = ($fields['mos-dtd-available'])?$fields['mos-dtd-available']:0;
+            $percent = number_format(($sold * 100 / $available), 2);
+            ?>
             <div class="mos-dtd-wrapper <?php echo $attributes['className'] ?>">
                 <div class="mos-dtd-block">
                     <?php if ($fields['mos-dtd-heading']) : ?>
@@ -64,14 +69,14 @@ function crb_attach_theme_options() {
                             <div class="woo_spec_bar mt30 mb20">
                                 <div class="deal-stock mb10">
                                     <span class="stock-sold floatleft">
-                                        Already Sold: <strong>12</strong>
+                                        Already Sold: <strong><?php echo $sold; ?></strong>
                                     </span>
                                     <span class="stock-available floatright">
-                                        Available: <strong>16</strong>
+                                        Available: <strong><?php echo $available; ?></strong>
                                     </span>
                                 </div>
-                                <div class="wpsm-bar wpsm-clearfix" data-percent="75%">
-                                    <div class="wpsm-bar-bar" style="background: rgb(106, 220, 250); width: 75%;"></div>
+                                <div class="wpsm-bar wpsm-clearfix" data-percent="<?php echo $percent ?>%">
+                                    <div class="wpsm-bar-bar" style="background: rgb(106, 220, 250); width: <?php echo $percent ?>%;"></div>
                                     <div class="wpsm-bar-percent">75 %</div>
                                 </div>
                             </div>
