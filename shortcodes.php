@@ -229,9 +229,48 @@ function porduct_carousel_func( $atts = array(), $content = '' ) {
                     <h3 class=" text-clamp text-clamp-2">
                         <a href="<?php echo get_the_permalink() ?>"><?php echo get_the_title() ?></a>
                     </h3>
+                    <?php
+                    if( class_exists( 'WeDevs_Dokan' ) ) {
+                        $vendor_id = get_the_author_meta( 'ID' );
+                        $store_info = dokan_get_store_info( $vendor_id );
+                        $store_url = dokan_get_store_url( $vendor_id );
+                        $sold_by_label = apply_filters( 'dokan_sold_by_label', esc_html__( 'Sold by', 'rehub-theme' ) );
+                        $is_vendor = dokan_is_user_seller( $vendor_id );
+                        $store_name = esc_html( $store_info['store_name'] );
+                        $featured_vendor = get_user_meta( $vendor_id, 'dokan_feature_seller', true );
+                    }elseif (class_exists('WCMp')){
+                        $vendor_id = get_the_author_meta( 'ID' );
+                        $is_vendor = is_user_wcmp_vendor( $vendor_id );
+                        if($is_vendor){
+                            $vendorobj = get_wcmp_vendor($vendor_id);
+                            $store_url = $vendorobj->permalink;
+                            $store_name = $vendorobj->page_title;	
+                            $verified_vendor = get_user_meta($vendor_id, 'wcmp_vendor_is_verified', true);			
+                        }
+                        $wcmp_option = get_option("wcmp_frontend_settings_name");
+                        $sold_by_label = (!empty($wcmp_option['sold_by_text'])) ? $wcmp_option['sold_by_text'] : esc_html__( 'Sold by', 'rehub-theme' );
+                    }
+                    elseif (defined( 'wcv_plugin_dir' )) {
+                        $vendor_id = get_the_author_meta( 'ID' );
+                        $store_url = WCV_Vendors::get_vendor_shop_page( $vendor_id );
+                        $sold_by_label = get_option( 'wcvendors_label_sold_by' );
+                        $is_vendor = WCV_Vendors::is_vendor( $vendor_id );
+                        $store_name = WCV_Vendors::get_vendor_sold_by( $vendor_id );
 
+                        if ( class_exists( 'WCVendors_Pro' ) ) {
+                            $vendor_meta = array_map( function( $a ){ return $a[0]; }, get_user_meta($vendor_id ) );
+                            $verified_vendor = ( array_key_exists( '_wcv_verified_vendor', $vendor_meta ) ) ? $vendor_meta[ '_wcv_verified_vendor' ] : false;
+                            $vacation_mode = get_user_meta( $vendor_id , '_wcv_vacation_mode', true ); 
+                            $vacation_msg = ( $vacation_mode ) ? get_user_meta( $vendor_id , '_wcv_vacation_mode_msg', true ) : '';		
+                        }		
+                    }
+                    else{
+                        return false;
+                    }
+                    
+                    ?>
 
-                    <small class="wcvendors_sold_by_in_loop"><span>Sold by</span> <a href="https://wahimall.com/store/sano/">Sano Health Food Center x<?php var_dump( get_post_meta(get_the_ID(),'dokan_product_author_override',true)) ?>x</a></small><br>
+                    <small class="wcvendors_sold_by_in_loop"><span><?php echo $sold_by_label; ?></span> <a href="<?php echo $store_url ?>"><?php echo $store_name ?></a></small><br><br>
 
 
 
