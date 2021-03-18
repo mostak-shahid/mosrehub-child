@@ -68,6 +68,9 @@ body .alignfull .wp-block-group__inner-container, .width-1200 {
 .bg-blue-light{
 	background-color: #00bdff;
 }
+.text-white{
+    color: #ffffff!important;
+}
 .mt--1{
     margin-top: -1px;
 }
