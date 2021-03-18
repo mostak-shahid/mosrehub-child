@@ -101,8 +101,6 @@ function crb_attach_theme_options() {
                             <div class="mt20 mb15">
                             <a href="?add-to-cart=<?php echo get_the_ID() ?>" data-product_id="<?php echo get_the_ID() ?>" data-product_sku="testmultivendor" class="re_track_btn rehub_main_btn rehub-main-smooth wpsm-button ajax_add_to_cart product_type_simple" >Add to cart</a>
                             </div>
-                        </div>
-                                                                                          
                         </div>                        
                     </div>
                     <?php if ($fields['mos-dtd-ete']) : ?>
