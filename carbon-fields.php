@@ -42,7 +42,7 @@ function crb_attach_theme_options() {
     ->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
         ?>
         <?php if ($fields['mos-dtd-product']) : ?>
-            
+            <?php $product = wc_get_product($fields['mos-dtd-product']); ?>
             <div class="mos-dtd-wrapper <?php echo $attributes['className'] ?>">
                 <div class="mos-dtd-block">
                     <?php if ($fields['mos-dtd-heading']) : ?>
@@ -58,6 +58,9 @@ function crb_attach_theme_options() {
                         </div>
                         <div class="text-part">
                             <h3><a class="" href="<?php echo get_the_permalink($fields['mos-dtd-product']) ?>"><?php echo get_the_title($fields['mos-dtd-product']) ?></a></h3>
+                            <div class="woo_spec_price">
+                                <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>249.99</bdi></span></span>
+                            </div>
                             <div class="woo_spec_bar mt30 mb20">
                                 <div class="deal-stock mb10">
                                     <span class="stock-sold floatleft">
@@ -96,8 +99,7 @@ function crb_attach_theme_options() {
                                 <!-- Countdown dashboard end -->
                                 <div class="clearfix"></div>
 
-                            </div>
-                                
+                            </div>                                
                             <div class="mt20 mb15">
                             <a href="?add-to-cart=<?php echo get_the_ID() ?>" data-product_id="<?php echo get_the_ID() ?>" data-product_sku="testmultivendor" class="re_track_btn rehub_main_btn rehub-main-smooth wpsm-button ajax_add_to_cart product_type_simple" >Add to cart</a>
                             </div>
