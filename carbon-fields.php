@@ -50,13 +50,13 @@ function crb_attach_theme_options() {
                     <hr>
                     <?php endif?>
                     <div class="wrapper d-flex">
-                        <div class="img-part flex-grow-1">
+                        <div class="img-part w-sm-50p">
                             <?php if (has_post_thumbnail($fields['mos-dtd-product'])) :?>
                                 <a class="img-centered-flex rh-flex-center-align rh-flex-justify-center" href="<?php echo get_the_permalink($fields['mos-dtd-product']) ?>">
                                     <img loading="lazy" src="<?php echo aq_resize(get_the_post_thumbnail_url($fields['mos-dtd-product'], 'full'),600,450,true)?>" data-src="<?php echo get_the_post_thumbnail_url($fields['mos-dtd-product'], 'full')?>" alt="<?php echo get_the_title($fields['mos-dtd-product']) ?>" class="lazyloaded" width="600" height="450">                            </a>
                             <?php endif;?>
                         </div>
-                        <div class="text-part flex-grow-1">
+                        <div class="text-part w-sm-50p">
                             <h3><a class="" href="<?php echo get_the_permalink($fields['mos-dtd-product']) ?>"><?php echo get_the_title($fields['mos-dtd-product']) ?></a></h3>
                             <div class="woo_spec_price">
                                 <?php echo $product->get_price_html(); ?>
