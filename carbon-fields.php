@@ -49,7 +49,7 @@ function crb_attach_theme_options() {
                     <div class="title"><?php echo esc_html( $fields['mos-dtd-heading'] ); ?></div>
                     <hr>
                     <?php endif?>
-                    <div class="wrapper">
+                    <div class="wrapper d-flex">
                         <div class="img-part">
                             <?php if (has_post_thumbnail($fields['mos-dtd-product'])) :?>
                                 <a class="img-centered-flex rh-flex-center-align rh-flex-justify-center" href="<?php echo get_the_permalink($fields['mos-dtd-product']) ?>">

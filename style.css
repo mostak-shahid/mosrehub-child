@@ -32,6 +32,13 @@ body .alignfull .wp-block-group__inner-container, .width-1200 {
 	width: 100%;
 	max-width: 300px;
 }
+.d-flex {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+}
 .mx-auto {
 	margin-left: auto!important;
 	margin-right: auto!important;
