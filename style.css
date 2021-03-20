@@ -24,12 +24,19 @@ body .alignfull .wp-block-group__inner-container, .width-1200 {
 .hr-3 hr{
     height: 3px;
 }
+.p-0{
+	padding: 0!important;
+}
 .p-10{
 	padding: 10px!important;
 }
 .w-500{
 	width: 100%;
 	max-width: 500px;
+}
+.w-420{
+	width: 100%;
+	max-width: 420px;
 }
 .w-300{
 	width: 100%;
